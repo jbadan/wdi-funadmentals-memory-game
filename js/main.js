@@ -25,9 +25,11 @@ var cardsInPlay = [];
 var checkForMatch = function(){
       if (cardsInPlay.length === 2){
       if (cardsInPlay[0] === cardsInPlay[1]) {
-      alert ("You found a match!");
+        document.getElementById('alert').innerHTML += "<br> You found a match!";
+    //  alert ("You found a match!");
   } else {
-      alert ("Sorry, try again.");
+      document.getElementById('alert').innerHTML += "<br> Sorry, try again!";
+    //  alert ("Sorry, try again.");
   }
 }
 };
@@ -48,6 +50,7 @@ var flipCard = function (){
 // randomly ends up with 2 queens of hearts on same board etc.
 cards.sort(function(a, b){return 0.5 - Math.random()});
 
+
 var createBoard = function (){
     for (var i=0; i<cards.length; i++) {
         var cardElement = document.createElement('img');
@@ -59,14 +62,3 @@ var createBoard = function (){
 };
 
 createBoard();
-
-/*function resetGame(){
-  for (var i=0; i<cards.length; i++) {
-      var cardElement = document.createElement('img');
-      cardElement.setAttribute('src', 'images/back.png');
-      cardElement.setAttribute('data-id', i);
-      cardElement.addEventListener('click', flipCard);
-      document.getElementById('game-board').appendChild(cardElement);
-      cards.sort(function(a, b){return 0.5 - Math.random()});
-  }
-};*/
