@@ -44,6 +44,10 @@ var flipCard = function (){
     };
 };
 
+//sorts cards - not optimal, but working see https://www.w3schools.com/js/js_array_sort.asp
+// randomly ends up with 2 queens of hearts on same board etc.
+cards.sort(function(a, b){return 0.5 - Math.random()});
+
 var createBoard = function (){
     for (var i=0; i<cards.length; i++) {
         var cardElement = document.createElement('img');
@@ -55,3 +59,14 @@ var createBoard = function (){
 };
 
 createBoard();
+
+/*function resetGame(){
+  for (var i=0; i<cards.length; i++) {
+      var cardElement = document.createElement('img');
+      cardElement.setAttribute('src', 'images/back.png');
+      cardElement.setAttribute('data-id', i);
+      cardElement.addEventListener('click', flipCard);
+      document.getElementById('game-board').appendChild(cardElement);
+      cards.sort(function(a, b){return 0.5 - Math.random()});
+  }
+};*/
